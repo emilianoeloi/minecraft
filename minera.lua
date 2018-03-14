@@ -1,17 +1,23 @@
 local mineSize = 10
 local stepSize = 3
 
+function dig()
+    if turtle.detect() then
+        turtle.dig()
+    end
+end
+
 function branch(side,touch)
-    turtle.dig()
+    dig()
     
     turtle.up()
-    turtle.dig()
+    dig()
     
     turtle.up()
-    turtle.dig()
+    dig()
     
     turtle.up()
-    turtle.dig()
+    dig()
     if touch == true then
         turtle.turnLeft()
         turtle.turnLeft()
@@ -35,9 +41,9 @@ function branch(side,touch)
     else
         turtle.turnRight()
     end
-    turtle.dig()
+    dig()
     turtle.forward()
-    turtle.dig()
+    dig()
     
     turtle.back()
     if side == "left" then
