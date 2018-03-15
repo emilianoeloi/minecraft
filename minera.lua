@@ -7,6 +7,11 @@ function dig()
     end
 end
 
+function halfTurn()
+    turtle.turnLeft()
+    turtle.turnLeft()
+end
+
 function branch(side,touch)
     dig()
     
@@ -19,13 +24,11 @@ function branch(side,touch)
     turtle.up()
     dig()
     if touch == true then
-        turtle.turnLeft()
-        turtle.turnLeft()
+        halfTurn()
         turtle.back()
         turtle.select(2)
         turtle.place()
-        turtle.turnLeft()
-        turtle.turnLeft()
+        halfTurn()
         turtle.forward()
     else
     
@@ -52,6 +55,7 @@ function branch(side,touch)
         turtle.turnLeft()
     end
     turtle.down() 
+    print(turtle.getFuelLimit())
 end
 function path(size)
     local pathSize = 4
