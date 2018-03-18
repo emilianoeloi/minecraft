@@ -3,8 +3,21 @@ local stepSize = 3
 
 function dig()
     if turtle.detect() then
+        handleSlip()
         turtle.dig()
     end
+end
+
+function handleSlip()
+	local slip = true
+	while slip do
+		r, blockData = turtle.inspect()
+		if (blockData["name"] == "minecraft:gravel") then
+			turtle.dig()
+		else
+			slip = false
+		end
+	end
 end
 
 function halfTurn()
